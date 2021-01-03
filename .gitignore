@@ -233,4 +233,5 @@ fabric.properties
 /feature_data/
 /test.avi
 /test/
-/checkpoint/
+/data1/
+/model/
