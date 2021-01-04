@@ -230,8 +230,8 @@ fabric.properties
 /dataset/
 /data/
 /data1/
-/test/threshold/
+/test/anomal_result/
 /test/anomal/
 /feature/feature.csv
 /test/error/
-/test/result/
+/test/error_result/

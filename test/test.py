@@ -47,4 +47,4 @@ if __name__ == '__main__':
     for i, f in enumerate(listdir(fld)):
         frame = cv2.imread(join(fld, f))
         frame = predict(frame, threshold)
-        cv2.imwrite(f'./result/{i}.bmp', frame)
+        cv2.imwrite(f'./error_result/{i}.bmp', frame)
