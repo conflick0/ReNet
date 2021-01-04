@@ -42,12 +42,9 @@ def predict(frame, threshold):
 
 
 if __name__ == '__main__':
-    fld = './anomal/'
-    thresholds = [0.053, 0.058, 0.06]
-    for th in thresholds:
-        dir_name = f'threshold_{str(th)}'
-        mkdir(f'./threshold/{dir_name}')
-        for i, f in enumerate(listdir(fld)):
-            frame = cv2.imread(join(fld, f))
-            frame = predict(frame, th)
-            cv2.imwrite(f'./threshold/{dir_name}/{i}.bmp', frame)
+    fld = './error/'
+    threshold = 0.058
+    for i, f in enumerate(listdir(fld)):
+        frame = cv2.imread(join(fld, f))
+        frame = predict(frame, threshold)
+        cv2.imwrite(f'./result/{i}.bmp', frame)

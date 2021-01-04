@@ -233,3 +233,5 @@ fabric.properties
 /test/threshold/
 /test/anomal/
 /feature/feature.csv
+/test/error/
+/test/result/
