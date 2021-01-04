@@ -228,10 +228,8 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 /dataset/
-/data2/
 /data/
-/feature_data/
-/test.avi
-/test/
 /data1/
-/model/
+/test/threshold/
+/test/anomal/
+/feature/feature.csv

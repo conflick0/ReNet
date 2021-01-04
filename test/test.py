@@ -1,10 +1,10 @@
 import cv2
 import tensorflow as tf
 import numpy as np
-from os import listdir
+from os import listdir, mkdir
 from os.path import join
 
-model = tf.keras.models.load_model('./model/renet')
+model = tf.keras.models.load_model('../model/renet')
 
 
 def cv2tf_img(img):
@@ -42,26 +42,12 @@ def predict(frame, threshold):
 
 
 if __name__ == '__main__':
-    fld = './data/nomal/'
-    threshold = 0.058
-    for f in listdir(fld):
-        frame = cv2.imread(join(fld, f))
-        frame = predict(frame, threshold)
-        cv2.imshow('f', frame)
-        cv2.waitKey(1)
-
-    # cap = cv2.VideoCapture('test.avi')
-    #
-    # while True:
-    #     ret, frame = cap.read()
-    #     frame = predict(frame, threshold)
-    #     cv2.imshow('frame', frame)
-    #
-    #     if cv2.waitKey(1) & 0xFF == ord('q'):
-    #         break
-    #
-    # # 釋放攝影機
-    # cap.release()
-    #
-    # # 關閉所有 OpenCV 視窗
-    # cv2.destroyAllWindows()
+    fld = './anomal/'
+    thresholds = [0.053, 0.058, 0.06]
+    for th in thresholds:
+        dir_name = f'threshold_{str(th)}'
+        mkdir(f'./threshold/{dir_name}')
+        for i, f in enumerate(listdir(fld)):
+            frame = cv2.imread(join(fld, f))
+            frame = predict(frame, th)
+            cv2.imwrite(f'./threshold/{dir_name}/{i}.bmp', frame)

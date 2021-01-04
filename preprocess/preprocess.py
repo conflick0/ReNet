@@ -3,14 +3,13 @@ from os import listdir
 from os.path import join, dirname
 
 project_root = dirname(dirname(__file__))
-input_folder = join(project_root, 'data/nomal')
-output_folder = join(project_root, 'data1/nomal_data/nomal')
+input_folder = join(project_root, 'data/anomal')
+output_folder = join(project_root, 'data1/anomal_data/anomal')
 files = listdir(input_folder)
 
 stride = 50
 size = 100
 i = 0
-
 
 for f in files:
     if i > 10000: break
