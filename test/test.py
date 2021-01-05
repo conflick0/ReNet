@@ -1,8 +1,9 @@
 import cv2
 import tensorflow as tf
 import numpy as np
-from os import listdir, mkdir
+from os import listdir
 from os.path import join
+import time
 
 model = tf.keras.models.load_model('../model/renet')
 
@@ -43,8 +44,12 @@ def predict(frame, threshold):
 
 if __name__ == '__main__':
     fld = './error/'
-    threshold = 0.058
+    threshold = 0.045
     for i, f in enumerate(listdir(fld)):
         frame = cv2.imread(join(fld, f))
+        time_start = time.time()
         frame = predict(frame, threshold)
+        time_end = time.time()
+        print(f'img-{i} cost time : {time_end - time_start} sec')
+
         cv2.imwrite(f'./error_result/{i}.bmp', frame)
